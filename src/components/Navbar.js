@@ -67,16 +67,16 @@ function Navbar() {
         }`}
       >
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1"onClick={handleClick}>Home</a>
+          <a className="hover:text-green-700 p-1"onClick={handleClick} rel="preload">Home</a>
         </Link>
         <Link legacyBehavior href="#product">
-          <a className="hover:text-green-700 p-1" onClick={handleClick}>Products</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick} rel="preload">Products</a>
         </Link>
         <Link legacyBehavior href="#categorie">
-          <a className="hover:text-green-700 p-1"onClick={handleClick}>Categories</a>
+          <a className="hover:text-green-700 p-1"onClick={handleClick} rel="preload">Categories</a>
         </Link>
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1"onClick={handleClick}>Services</a>
+          <a className="hover:text-green-700 p-1"onClick={handleClick} rel="preload">Services</a>
         </Link>
 
         {/* responsive social media */}
