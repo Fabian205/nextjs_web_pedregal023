@@ -11,14 +11,13 @@ import {
   BsInstagram,
 } from "react-icons/bs";
 
-
-
 function Navbar() {
   const [toggle, setToggle] = useState(false);
 
-  const boton = ()=>{
-    console.log("esconder menu")   
-  }
+  const handleClick = () => {
+    //console.log("HACIENDO CLICK");
+    setToggle(!toggle);
+  };
 
   return (
     <div className="fixed bg-white top-0 w-[100%] z-20 shadow-md">
@@ -30,10 +29,10 @@ function Navbar() {
         </div>
         <div className="hidden md:flex gap-10 tracking-wider font-bold text-gray-600">
           <Link legacyBehavior href="/">
-            <a className="hover:text-green-700">Home</a>                      
+            <a className="hover:text-green-700">Home</a>
           </Link>
           <Link legacyBehavior href="#product">
-            <a className="hover:text-green-700">Products</a>      
+            <a className="hover:text-green-700">Products</a>
           </Link>
           <Link legacyBehavior href="#categorie">
             <a className="hover:text-green-700">Categories</a>
@@ -68,20 +67,16 @@ function Navbar() {
         }`}
       >
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1">Home</a>
-          {/* <a className={`hover:text-green-700 p-1 ${boton()}`}>Home</a> */}
+          <a className="hover:text-green-700 p-1"onClick={handleClick}>Home</a>
         </Link>
-        {/* <button className="btn text-white" text="Home" >
-          Home
-        </button> */}
         <Link legacyBehavior href="#product">
-          <a className="hover:text-green-700 p-1">Products</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>Products</a>
         </Link>
         <Link legacyBehavior href="#categorie">
-          <a className="hover:text-green-700 p-1">Categories</a>
+          <a className="hover:text-green-700 p-1"onClick={handleClick}>Categories</a>
         </Link>
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1">Services</a>
+          <a className="hover:text-green-700 p-1"onClick={handleClick}>Services</a>
         </Link>
 
         {/* responsive social media */}
