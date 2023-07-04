@@ -67,7 +67,7 @@ function CategorieSlider() {
               <div 
                 className="flex flex-col gap-y-5 md:flex-row md:gap-x-16"
               >
-                <Image src={categorie.image} height={900} width={1300} alt="software images" /* priority={true} */ rel="preload"/>
+                <Image src={categorie.image} height={900} width={1300} alt="software images" /* priority={true} *//>
                 <div className="flex flex-col gap-y-5">
                   <div className="text-2xl font-medium flex gap-x-2 items-center">
                     {categorie.name}
