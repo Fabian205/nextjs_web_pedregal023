@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import Image from 'next/image'
 
 function Card({image, title}) {
   return (

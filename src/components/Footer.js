@@ -39,27 +39,30 @@ function Footer() {
                   dropdown ? `hidden` : ``
                 }`}
               >
-                <a
-                  href="/#product"
+                <Link legacyBehavior href="/#product">
+                <a                 
                   className="p-2 hover:text-green-700"
                   onClick={handleDropdown}
                 >
                   El Conjunto
                 </a>
-                <a
-                  href="/#categorie"
+                </Link>
+                <Link legacyBehavior href="/#categorie">
+                <a                 
                   className="p-2 hover:text-green-700"
                   onClick={handleDropdown}
                 >
                   Galería Fotográfica
                 </a>
-                <a
-                  href="/#history"
+                </Link>
+                <Link legacyBehavior href="/#history">
+                <a                  
                   className="p-2 hover:text-green-700"
                   onClick={handleDropdown}
                 >
                   Nuestra Historia
                 </a>
+                </Link>                
               </div>
             </div>
             <Link legacyBehavior href="/noticias">

@@ -35,15 +35,43 @@ function Navbar() {
         </div>
         <div className="hidden md:flex gap-10 tracking-wider font-bold text-gray-600">
           <div className="dropdown">
-            <button className="bg-transparent hover:text-green-700 hover: ${handleDropdown}" onClick={handleDropdown}>
+            <button
+              className="bg-transparent hover:text-green-700 hover: ${handleDropdown}"
+              onClick={handleDropdown}
+            >
               Pedregal
             </button>
-            <div className={`flex flex-col w-[10%] h-[14vh] fixed bg-black/50 text-white top-[65px] ${dropdown ? `hidden`:``}`}>
-              <a href="/#product" className="p-2 hover:text-green-700" onClick={handleDropdown}>El Conjunto</a>
-              <a href="/#categorie" className="p-2 hover:text-green-700" onClick={handleDropdown}>Galería Fotográfica</a>
-              <a href="/#history" className="p-2 hover:text-green-700" onClick={handleDropdown}>Nuestra Historia</a>
+            <div
+              className={`flex flex-col w-[10%] h-[14vh] fixed bg-black/50 text-white top-[65px] ${
+                dropdown ? `hidden` : ``
+              }`}
+            >
+              <Link legacyBehavior href="/#product">
+                <a
+                  className="p-2 hover:text-green-700"
+                  onClick={handleDropdown}
+                >
+                  El Conjunto
+                </a>
+              </Link>
+              <Link legacyBehavior href="/#categorie">
+                <a
+                  className="p-2 hover:text-green-700"
+                  onClick={handleDropdown}
+                >
+                  Galería Fotográfica
+                </a>
+              </Link>
+              <Link legacyBehavior href="/#history">
+                <a
+                  className="p-2 hover:text-green-700"
+                  onClick={handleDropdown}
+                >
+                  Nuestra Historia
+                </a>
+              </Link>
             </div>
-          </div>          
+          </div>
           <Link legacyBehavior href="/noticias">
             <a className="hover:text-green-700">Noticias</a>
           </Link>
@@ -58,11 +86,13 @@ function Navbar() {
           </Link>
           <Link legacyBehavior href="/loginCoprop">
             <a className="hover:text-green-700">Copropietarios</a>
-          </Link>         
+          </Link>
         </div>
         <div>
           <button className="hidden md:block border border-green-700 px-4 py-1 rounded-md text-green-700 hover:bg-green-700 hover:text-white">
-            <a href="/contacto">Contacto</a>            
+            <Link legacyBehavior href="/contacto">
+              <a>Contacto</a>
+            </Link>
           </button>
         </div>
         {toggle ? (
