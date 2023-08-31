@@ -5,7 +5,7 @@ import Card from "./Card";
 function Product() {
   return (
     <section id="product" className="max-w-[1640px] mx-auto p-4 py-16">
-      <Headline title="Products"/>
+      <Headline title="Nuestro Conjunto"/>
       {<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-20 py-16">
         <Card image="/assets/consultoria02.jpg" title="Software" />
         <Card image="/assets/consultoria03.jpg" title="Paginas Web" />

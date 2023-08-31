@@ -13,37 +13,56 @@ import {
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const [dropdown, setDropdown] = useState(true);
 
   const handleClick = () => {
     //console.log("HACIENDO CLICK");
     setToggle(!toggle);
   };
 
+  const handleDropdown = () => {
+    //console.log("HACIENDO CLICK");
+    setDropdown(!dropdown);
+  };
   return (
     <div className="fixed bg-white top-0 w-[100%] z-20 shadow-md">
       <div className="container mx-auto flex justify-between items-center px-4 py-4">
         <div className="flex gap-1 items-center text-xl md:text-2xl font-bold">
-          <span className="italic">Art</span>
-          <FaHome />
-          <span className="italic text-green-700">Design</span>
+          {/* <span className="italic">Conjunto</span> */}
+          {/* <FaHome /> */}
+          <img className="w-10 h-8" src="/logoPedTr.png" />
+          <span className="italic text-green-700"> Conjunto Pedregal</span>
         </div>
         <div className="hidden md:flex gap-10 tracking-wider font-bold text-gray-600">
+          <div className="dropdown">
+            <button className="bg-transparent hover:text-green-700 hover: ${handleDropdown}" onClick={handleDropdown}>
+              Pedregal
+            </button>
+            <div className={`flex flex-col w-[10%] h-[14vh] fixed bg-black/50 text-white top-[65px] ${dropdown ? `hidden`:``}`}>
+              <a href="/#product" className="p-2 hover:text-green-700" onClick={handleDropdown}>El Conjunto</a>
+              <a href="/#categorie" className="p-2 hover:text-green-700" onClick={handleDropdown}>Galería Fotográfica</a>
+              <a href="/#history" className="p-2 hover:text-green-700" onClick={handleDropdown}>Nuestra Historia</a>
+            </div>
+          </div>          
+          <Link legacyBehavior href="/noticias">
+            <a className="hover:text-green-700">Noticias</a>
+          </Link>
           <Link legacyBehavior href="/">
             <a className="hover:text-green-700">Home</a>
           </Link>
-          <Link legacyBehavior href="#product">
-            <a className="hover:text-green-700">Products</a>
+          {/* <Link legacyBehavior href="/">
+            <a className="hover:text-green-700">Galería</a>
+          </Link> */}
+          <Link legacyBehavior href="/loginAdmin">
+            <a className="hover:text-green-700">Administración</a>
           </Link>
-          <Link legacyBehavior href="#categorie">
-            <a className="hover:text-green-700">Categories</a>
-          </Link>
-          <Link legacyBehavior href="/">
-            <a className="hover:text-green-700">Services</a>
-          </Link>
+          <Link legacyBehavior href="/loginCoprop">
+            <a className="hover:text-green-700">Copropietarios</a>
+          </Link>         
         </div>
         <div>
           <button className="hidden md:block border border-green-700 px-4 py-1 rounded-md text-green-700 hover:bg-green-700 hover:text-white">
-            Contact
+            <a href="/contacto">Contacto</a>            
           </button>
         </div>
         {toggle ? (
@@ -67,16 +86,29 @@ function Navbar() {
         }`}
       >
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1"onClick={handleClick} >Home</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>
+            Pedregal
+          </a>
         </Link>
         <Link legacyBehavior href="#product">
-          <a className="hover:text-green-700 p-1" onClick={handleClick} >Products</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>
+            El Conjunto
+          </a>
         </Link>
         <Link legacyBehavior href="#categorie">
-          <a className="hover:text-green-700 p-1"onClick={handleClick} >Categories</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>
+            Galería
+          </a>
+        </Link>
+        <Link legacyBehavior href="/loginAdmin">
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>
+            Administración
+          </a>
         </Link>
         <Link legacyBehavior href="/">
-          <a className="hover:text-green-700 p-1"onClick={handleClick} >Services</a>
+          <a className="hover:text-green-700 p-1" onClick={handleClick}>
+            Copropietarios
+          </a>
         </Link>
 
         {/* responsive social media */}
@@ -110,14 +142,14 @@ function Navbar() {
                 />
               </a>
             </Link>
-            <Link legacyBehavior href="https://www.linkedin.com">
+            {/* <Link legacyBehavior href="https://www.linkedin.com">
               <a target="_blank">
                 <BsLinkedin
                   size={25}
                   className="text-green-700 hover:-translate-y-1.5 duration-300"
                 />
               </a>
-            </Link>
+            </Link> */}
             <Link legacyBehavior href="https://www.instagram.com">
               <a target="_blank">
                 <BsInstagram

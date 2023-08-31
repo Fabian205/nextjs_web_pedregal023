@@ -17,6 +17,7 @@ import Image from "next/image";
 
 const categories = [
   {
+    id:0,
     name: "img005",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
@@ -24,18 +25,21 @@ const categories = [
     btnText: "Explore",
   },
   {
+    id:1,
     name: "img002",
     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img002,
     btnText: "Explore",
   },
   {
+    id:2,
     name: "img003",
     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img003,
     btnText: "Explore",
   },
   {
+    id:3,
     name: "img004",
     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img004,
@@ -43,10 +47,10 @@ const categories = [
   },
 ];
 
-function CategorieSlider() {
+export default function CategorieSlider() {
   return (
     <Swiper
-      slidesPerVie={1}
+      slidesPerView={1}
       spaceBetween={30}
       navigation={true}
       modules={[Navigation]}
@@ -67,7 +71,7 @@ function CategorieSlider() {
               <div 
                 className="flex flex-col gap-y-5 md:flex-row md:gap-x-16"
               >
-                <Image src={categorie.image} height={900} width={1300} alt="software images" /* priority={true} *//>
+                <Image src={categorie.image} height={900} width={1300} alt="software images" priority={true}/>
                 <div className="flex flex-col gap-y-5">
                   <div className="text-2xl font-medium flex gap-x-2 items-center">
                     {categorie.name}
@@ -89,5 +93,5 @@ function CategorieSlider() {
   );
 }
 
-export default CategorieSlider;
+//export default CategorieSlider;
 
