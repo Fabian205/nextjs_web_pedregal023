@@ -13,7 +13,7 @@ function Hero() {
             <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold tracking-wider">Bienvenido</h1>
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold tracking-wider"><span className="text-white">Conjunto Habitacional &quot;El Pedregal&quot;</span></h1>
+            <h1 className="text-2xl md:text-3xl lg:text-5xl font-semibold tracking-wider"><span className="text-white">Conjunto Habitacional El Pedregal</span></h1>
           </div>
           <div className="mx-auto bg-green-700 h-[2px] w-[150px]"></div>
           {/* <div>
