@@ -3,8 +3,12 @@ import axios from "axios";
 import Link from "next/link";
 import axiosInstance from "../../axiosInstance";
 import { useRouter } from "next/router";
+import verifyCookie from "@/verifyCookie";
+
 
 export default function LoginAdmin() {
+
+  
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -53,10 +57,9 @@ export default function LoginAdmin() {
       });
   };
 
-const verificaCookie = () => { 
-  alert("verificaCookie");
-  
-}
+  const verificaCookie = () => {
+    alert("verificaCookie");
+  };
 
   const handleClearInput = () => {
     setCredentials({
@@ -98,7 +101,7 @@ const verificaCookie = () => {
         handleClearInput();
       });
   };
-
+ 
   return (
     <div className="h-screen">
       {/* <div className="bg-gray-700 mt-10  bg-cover bg-no-repeat bg-center bg-fixed flex items-center relative">
@@ -181,12 +184,12 @@ const verificaCookie = () => {
             </p>
           </div>
           <div className="flex flex-col">
-            <button
+            {/* <button
               onClick={verificaCookie}
               className="bg-blue-600 text-white rounded py-2 px-4 hover:bg-blue-800 mt-8 ml-12"
             >
               Estados de Cuenta
-            </button>
+            </button> */}
             <Link legacyBehavior href="/admin/estadoscuentaadmin">
               <a className="dark:text-gray-400 italic underline hover:text-teal-400 ">
                 Estados de Cuenta
@@ -228,3 +231,4 @@ const verificaCookie = () => {
     </div>
   );
 }
+
