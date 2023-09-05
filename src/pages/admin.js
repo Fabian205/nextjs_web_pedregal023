@@ -12,13 +12,18 @@ function Admin() {
   return (
     <div className="bg-gray-800 mt-10 h-screen bg-cover bg-no-repeat bg-center bg-fixed flex-col text-center">
       <h1 className="text-white text-xl pt-20 pb-10">
-        A D M I N I S T R A C I O N
+        A D M I N I S T R A C I Ó N
       </h1>
-      <h1 className="text-white text-xl pt-10 pb-10">BIENVENIDO</h1>
-      <div className="bg-gray-900 border border-gray-200 shadow-md p-3 mb-10">
-        <p className="text-white">Nombre: {nombre}</p>
-        <p className="text-white">Cargo: {cargo}</p>
+      <h1 className="text-white text-xl pt-10 pb-3">BIENVENIDO</h1>
+      <div className="container mx-auto bg-gray-900 p-4 mb-16 w-1/4 ">
+        <p className="text-white">{cargo}</p>
+        <p className="text-white">{nombre}</p>
       </div>
+
+      <p className="text-teal-600 italic">
+        {"Menú"}
+      </p>
+
       <div className="pb-2">
         <Link legacyBehavior href="/admin/estadoscuentaadmin">
           <a className="dark:text-gray-400 italic underline hover:text-teal-400">

@@ -135,7 +135,7 @@ function Navbar() {
             Administración
           </a>
         </Link>
-        <Link legacyBehavior href="/">
+        <Link legacyBehavior href="/loginCoprop">
           <a className="hover:text-green-700 p-1" onClick={handleClick}>
             Copropietarios
           </a>
