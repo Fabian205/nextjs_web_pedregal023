@@ -4,26 +4,21 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 function Admin() {
+  // Obtengo los datos pasados desde loginAdmin
+  const router = useRouter();
+  const { nombre } = router.query;
+  const { cargo } = router.query;
 
-//const router = useRouter();
-// Obtengo los datos pasados desde loginAdmin
-//const datos = router.query;
-const [datos, setDatos] = useState(null);
-
-/* useEffect(() => {
-  // Realizar la llamada a la ruta API en el montaje del componente
-  fetch('/api/auth/signin/')
-    .then(response => response.json())
-    .then(data => setDatos(data))
-    
-    .catch(error => console.error('Error fetching data:', error));
-}, []); */
-//console.log(datos);
   return (
     <div className="bg-gray-800 mt-10 h-screen bg-cover bg-no-repeat bg-center bg-fixed flex-col text-center">
-      <h1 className="text-white text-xl pt-20 pb-10">ADMINISTRACION</h1>
-      {/* <p>Nombre: {datos.nombre}</p>
-      <p>Cargo: {datos.cargo}</p> */}
+      <h1 className="text-white text-xl pt-20 pb-10">
+        A D M I N I S T R A C I O N
+      </h1>
+      <h1 className="text-white text-xl pt-10 pb-10">BIENVENIDO</h1>
+      <div className="bg-gray-900 border border-gray-200 shadow-md p-3 mb-10">
+        <p>Nombre: {nombre}</p>
+        <p>Cargo: {cargo}</p>
+      </div>
       <div className="pb-2">
         <Link legacyBehavior href="/admin/estadoscuentaadmin">
           <a className="dark:text-gray-400 italic underline hover:text-teal-400">

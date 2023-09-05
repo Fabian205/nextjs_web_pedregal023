@@ -5,16 +5,9 @@ export default async function signinHandler(req, res) {
   const { user, password } = req.body;
   //console.log(user, password);
   const jwt = require("jsonwebtoken");
-
   // check if email and password are valid
   try {
-    /* const [result] = await pool.query(
-      "SELECT email, password FROM users WHERE email = '" +
-        email +
-        "' AND password = '" +
-        password +
-        "'"      
-    ); */
+    
     const [result] = await pool.query(
       "SELECT nomb_adm, cargo_adm, user_adm, pwd_adm FROM directiva WHERE user_adm = '" +
         user +
@@ -23,8 +16,6 @@ export default async function signinHandler(req, res) {
         "'"      
     );
 
-    //console.log("prueba user recibido de bd" + " " + result[0].user_adm);
-    //console.log("prueba pwd recibido de bd" + " " + result[0].pwd_adm);
     const bdnombre = result[0].nomb_adm;
     const bdcargo = result[0].cargo_adm;
     const bduser = result[0].user_adm;
@@ -34,8 +25,7 @@ export default async function signinHandler(req, res) {
       nombre: bdnombre,
       cargo: bdcargo
     };
-    console.log("D A T O S",datos);
-
+    
     if (user === bduser && password === bdpassword) {            
       const token = jwt.sign(
         {
@@ -55,7 +45,8 @@ export default async function signinHandler(req, res) {
       });
       //console.log(datos);
       res.setHeader("Set-Cookie", serialized);
-      return res.status(200).json("User successfully");                
+      //console.log("D A T O S",datos);
+      return res.status(200).json(datos);                
     }
     return res.status(401).json({ error: "Invalid email or password" });
   } catch (error) {

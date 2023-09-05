@@ -3,13 +3,14 @@ import axios from "axios";
 import Link from "next/link";
 import axiosInstance from "../../axiosInstance";
 import { useRouter } from "next/router";
-import verifyCookie from "@/verifyCookie";
+
 
 
 export default function LoginAdmin() {
-
-  
+ 
   const [showPassword, setShowPassword] = useState(false);
+
+  //const [data, setData] = useState("")
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -45,7 +46,7 @@ export default function LoginAdmin() {
     await axiosInstance
       .post("api/auth/signout")
       .then((response) => {
-        // Manejar la respuesta exitosa
+        // Manejo la respuesta exitosa
         router.push("/loginAdmin");
         alert("Logout succesfully!");
         //console.log(response.data);
@@ -57,10 +58,6 @@ export default function LoginAdmin() {
       });
   };
 
-  const verificaCookie = () => {
-    alert("verificaCookie");
-  };
-
   const handleClearInput = () => {
     setCredentials({
       user: "",
@@ -68,11 +65,6 @@ export default function LoginAdmin() {
     });
     inputName.current.focus();
   };
-
-  /* const datos = {
-    user: credentials.user,
-    password: credentials.password
-  }; */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,13 +79,15 @@ export default function LoginAdmin() {
     await axiosInstance
       .post("api/auth/signin", credentials)
       .then((response) => {
-        // Manejar la respuesta exitosa
-        router.push("/admin");
-        //console.log(datos);
-        /* router.push({
-          pathname: "admin",
-          query: datos
-        }); */
+        // Manejar la respuesta exitosa y envio los datos del user logeado
+        router.push(
+          {
+            pathname: '/admin',
+            query: { nombre: response.data.nombre, cargo: response.data.cargo},
+          }
+        );
+        //console.log(response.data);
+        //console.log("D A T A", response.data.nombre, response.data.cargo);        
       })
       .catch((error) => {
         // El error 401 será interceptado y manejado de manera personalizada
@@ -104,9 +98,6 @@ export default function LoginAdmin() {
  
   return (
     <div className="h-screen">
-      {/* <div className="bg-gray-700 mt-10  bg-cover bg-no-repeat bg-center bg-fixed flex items-center relative">
-        <h1 className="text-white text-xl">Administracion del conjunto</h1>
-      </div> */}
       <div className="max-w-md mx-auto h-auto bg-gray-800 rounded-lg shadow-md m-20 ">
         <h2 className="text-2xl font-bold mb-10 pt-10 text-center text-gray-400">
           Login para Administración
