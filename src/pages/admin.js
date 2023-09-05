@@ -16,8 +16,8 @@ function Admin() {
       </h1>
       <h1 className="text-white text-xl pt-10 pb-10">BIENVENIDO</h1>
       <div className="bg-gray-900 border border-gray-200 shadow-md p-3 mb-10">
-        <p>Nombre: {nombre}</p>
-        <p>Cargo: {cargo}</p>
+        <p className="text-white">Nombre: {nombre}</p>
+        <p className="text-white">Cargo: {cargo}</p>
       </div>
       <div className="pb-2">
         <Link legacyBehavior href="/admin/estadoscuentaadmin">
