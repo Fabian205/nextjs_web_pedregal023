@@ -73,7 +73,7 @@ function Navbar() {
             </div>
           </div>
           <Link legacyBehavior href="/noticias">
-            <a className="hover:text-green-700">Noticias</a>
+            <a className="hover:text-green-700">Comunidad</a>
           </Link>
           <Link legacyBehavior href="/">
             <a className="hover:text-green-700">Home</a>

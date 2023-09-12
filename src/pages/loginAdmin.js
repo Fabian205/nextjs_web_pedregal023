@@ -3,14 +3,12 @@ import axios from "axios";
 import Link from "next/link";
 import axiosInstance from "../../axiosInstance";
 import { useRouter } from "next/router";
-
-
+import Button from "@/components/Button";
 
 export default function LoginAdmin() {
- 
-  const [showPassword, setShowPassword] = useState(false);
+  //Verificamos si existe una cookie activa
 
-  //const [data, setData] = useState("")
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -80,14 +78,12 @@ export default function LoginAdmin() {
       .post("api/auth/signin", credentials)
       .then((response) => {
         // Manejar la respuesta exitosa y envio los datos del user logeado
-        router.push(
-          {
-            pathname: '/admin',
-            query: { nombre: response.data.nombre, cargo: response.data.cargo},
-          }
-        );
+        router.push({
+          pathname: "/admin",
+          //query: { nombre: response.data.nombre, cargo: response.data.cargo },
+        });
         //console.log(response.data);
-        //console.log("D A T A", response.data.nombre, response.data.cargo);        
+        //console.log("D A T A", response.data.nombre, response.data.cargo);
       })
       .catch((error) => {
         // El error 401 será interceptado y manejado de manera personalizada
@@ -95,7 +91,7 @@ export default function LoginAdmin() {
         handleClearInput();
       });
   };
- 
+
   return (
     <div className="h-screen">
       <div className="max-w-md mx-auto h-auto bg-gray-800 rounded-lg shadow-md m-20 ">
@@ -171,16 +167,10 @@ export default function LoginAdmin() {
               Logout
             </button>
             <p className="text-teal-600 italic pt-6">
-              {"Ya estas logeado?, Ingreso rápido"}
+              {"If you are already logged in, use the following links for quick login"}
             </p>
           </div>
           <div className="flex flex-col">
-            {/* <button
-              onClick={verificaCookie}
-              className="bg-blue-600 text-white rounded py-2 px-4 hover:bg-blue-800 mt-8 ml-12"
-            >
-              Estados de Cuenta
-            </button> */}
             <Link legacyBehavior href="/admin/estadoscuentaadmin">
               <a className="dark:text-gray-400 italic underline hover:text-teal-400 ">
                 Estados de Cuenta
@@ -222,4 +212,3 @@ export default function LoginAdmin() {
     </div>
   );
 }
-

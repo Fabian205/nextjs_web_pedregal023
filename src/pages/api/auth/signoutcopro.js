@@ -2,16 +2,16 @@ import { verify } from "jsonwebtoken";
 import {serialize} from "cookie"
 
 
-export default function logoutHandler(req, res){
-  const { myTokenName } = req.cookies;
-  if(!myTokenName) {
+export default function logoutHandlerCopro(req, res){
+  const { myTokenName2 } = req.cookies;
+  if(!myTokenName2) {
     return res.status(401).json({error: 'no token'});
   }
   //const {email, username} = verify(myTokenName, 'secret')
 
   try {
-    verify(myTokenName, process.env.NEXTAUTH_SECRET)
-    const serialized = serialize("myTokenName", null, {
+    verify(myTokenName2, 'secret')
+    const serialized = serialize("myTokenName2", null, {
       httpOnly: true,
       //secure: process.env.NODE_ENV === "production",
       secure: true,

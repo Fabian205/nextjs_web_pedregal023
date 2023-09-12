@@ -17,7 +17,7 @@ import Image from "next/image";
 
 const categories = [
   {
-    id:0,
+    id: 1,
     name: "img005",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
@@ -25,23 +25,26 @@ const categories = [
     btnText: "Explore",
   },
   {
-    id:1,
+    id: 2,
     name: "img002",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img002,
     btnText: "Explore",
   },
   {
-    id:2,
+    id: 3,
     name: "img003",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img003,
     btnText: "Explore",
   },
   {
-    id:3,
+    id: 4,
     name: "img004",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
     image: img004,
     btnText: "Explore",
   },
@@ -61,17 +64,21 @@ export default function CategorieSlider() {
       }}
       className="categorieSlider min-h-[660px]"
     >
-      {categories.map((categorie, index) => {
+      {categories.map((categorie) => {
         return (
           <>
             <SwiperSlide
+              key={categorie.id}
               className="bg-slate-300 shadow-md min-h-[480px] rounded-md py-16 px-8 mt-10"
-              key={index}
             >
-              <div 
-                className="flex flex-col gap-y-5 md:flex-row md:gap-x-16"
-              >
-                <Image src={categorie.image} height={900} width={1300} alt="software images" priority={true}/>
+              <div className="flex flex-col gap-y-5 md:flex-row md:gap-x-16">
+                <Image
+                  src={categorie.image}
+                  height={900}
+                  width={1300}
+                  alt={categorie.name}
+                  priority={true}
+                />
                 <div className="flex flex-col gap-y-5">
                   <div className="text-2xl font-medium flex gap-x-2 items-center">
                     {categorie.name}
@@ -81,7 +88,7 @@ export default function CategorieSlider() {
                     {categorie.description}
                   </div>
                   <div>
-                    <Button link="#" text={categorie.btnText} />
+                    <Button link="/" text={categorie.btnText} />
                   </div>
                 </div>
               </div>
@@ -94,4 +101,3 @@ export default function CategorieSlider() {
 }
 
 //export default CategorieSlider;
-

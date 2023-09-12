@@ -66,7 +66,7 @@ function Footer() {
               </div>
             </div>
             <Link legacyBehavior href="/noticias">
-              <a className="hover:text-white">Noticias</a>
+              <a className="hover:text-white">Comunidad</a>
             </Link>
             <Link legacyBehavior href="/">
               <a className="hover:text-white">Home</a>
